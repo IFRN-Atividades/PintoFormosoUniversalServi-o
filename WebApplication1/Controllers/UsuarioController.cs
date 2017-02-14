@@ -23,7 +23,15 @@ namespace WebApplication1.Controllers
             dc.SubmitChanges();
         }
 
-        // DELETE api/values/5]
+        public void Put(int id, [FromBody] Models.Usuario usuario)
+        {
+            Models.BancoDataContext dc = new Models.BancoDataContext();
+            Models.Usuario cid = (from f in dc.Usuarios where f.Id == id select f).Single();
+            cid.Nome = usuario.Nome;
+            cid.Senha = usuario.Senha;
+            dc.SubmitChanges();
+        }
+
         public void Delete(int Id)
         {
             Models.BancoDataContext dc = new Models.BancoDataContext();

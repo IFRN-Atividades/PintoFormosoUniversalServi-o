@@ -92,13 +92,6 @@
       <Association Name="Produto_VendaItem" Member="VendaItems" AccessModifier="Internal" ThisKey="Id" OtherKey="IdProduto" Type="VendaItem" />
     </Type>
   </Table>
-  <Table Name="dbo.Usuario" Member="Usuarios">
-    <Type Name="Usuario">
-      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="Senha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Venda" Member="Vendas">
     <Type Name="Venda">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -120,6 +113,13 @@
       <Column Name="PrecoVenda" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Association Name="Produto_VendaItem" Member="Produto" AccessModifier="Internal" ThisKey="IdProduto" OtherKey="Id" Type="Produto" IsForeignKey="true" />
       <Association Name="Venda_VendaItem" Member="Venda" AccessModifier="Internal" ThisKey="IdVenda" OtherKey="Id" Type="Venda" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuarios">
+    <Type Name="Usuario">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Senha" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
