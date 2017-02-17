@@ -36,7 +36,7 @@ namespace WebApplication1.Controllers
         public void Delete(int id)
         {
             Models.BancoDataContext dc = new Models.BancoDataContext();
-            Models.Cidade r = (from f in dc.Cidades where f.Id == id select f).Single();
+            var r = (from f in dc.Cidades where f.Id == id select f).Single();
             dc.Cidades.DeleteOnSubmit(r);
             dc.SubmitChanges();
         }
